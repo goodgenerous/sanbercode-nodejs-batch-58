@@ -46,7 +46,7 @@ console.log(args1 !== args2);
 console.log(args1 < 50);
 console.log(args1 >= 100);
 
-// Penggunaan Operator Perbandingan
+// Penggunaan Operator Logika
 console.log(`\nPenggunaan Operator Logika:`)
 
 let isTrue = true;
