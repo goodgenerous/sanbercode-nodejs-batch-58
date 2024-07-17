@@ -1,10 +1,13 @@
-// Membuat server HTTP sederhana dengan Node.js yang merespons "Hello, World!" untuk setiap permintaan.
-const express = require('express');
-const app = express();
+// Membuat server HTTP sederhana dengan Node.js yang merespons "Hello, World!" untuk setiap permintaan
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello, World!');
+});
+
 const port = 3000;
 
-app.get('/', (req, res) => res.send('Hello, World!'));
-
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+server.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
 });
