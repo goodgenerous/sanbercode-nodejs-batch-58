@@ -9,7 +9,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Untuk mengembalikan data json pada soal 1
+// Untuk mengembalikan json pada soal 1
 app.get('/hello', (req, res) => {
     res.json({
         message: 'Success fetch message',
@@ -17,7 +17,7 @@ app.get('/hello', (req, res) => {
     })
 });
 
-// Untuk mengembalikan data json pada soal 2
+// Untuk mengembalikan json pada soal 2
 app.get('/user', (req, res) => {
     res.json({
         message: 'Success fetch user',
