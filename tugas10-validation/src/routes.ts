@@ -4,6 +4,8 @@ import uploadMiddleware from "./middlewares/upload.middleware";
 import uploadController from "./controllers/upload.controller";
 import productsController from "./controllers/products.controller";
 import categoriesController from "./controllers/categories.controller";
+import authMiddleware from "./middlewares/auth.middleware";
+import authController from "./controllers/auth.controller";
 
 const router = express.Router();
 
@@ -23,5 +25,11 @@ router.delete("/products/:id", productsController.delete);
 
 router.post("/upload", uploadMiddleware.single, uploadController.single);
 router.post("/uploads", uploadMiddleware.multiple, uploadController.multiple);
+
+// routes authentication
+router.post("/auth/login", authController.login);
+router.post("/auth/register", authController.register);
+router.get("/auth/me/", authMiddleware, authController.me);
+router.put("/auth/profile", authMiddleware, authController.profile);
 
 export default router;
