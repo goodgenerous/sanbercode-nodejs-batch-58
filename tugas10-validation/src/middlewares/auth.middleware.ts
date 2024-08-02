@@ -16,7 +16,10 @@ export default (req: Request, res: Response, next: NextFunction) => {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
-  const user = jwt.verify(accessToken, SECRET) as { id: string; role: string };
+  const user = jwt.verify(accessToken, SECRET) as {
+    id: string;
+    roles: string[];
+  };
 
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
@@ -24,7 +27,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
 
   (req as IReqUser).user = {
     id: user.id,
-    role: user.role,
+    roles: user.roles,
   };
 
   next();
